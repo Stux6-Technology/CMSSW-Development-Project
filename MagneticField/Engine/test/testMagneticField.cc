@@ -41,12 +41,18 @@
 #include "FWCore/ParameterSet/interface/FileInPath.h"
 #include "FWCore/MessageLogger/interface/MessageLogger.h"
 
+#include "MagneticField/VolumeBasedEngine/interface/VolumeBasedMagneticField.h"
+
 #include <iostream>
 #include <string>
 #include <sstream>
 #include <fstream>
 #include <iomanip>
 #include <libgen.h>
+
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
 
 using namespace edm;
 using namespace Geom;
@@ -248,8 +254,7 @@ void testMagneticField::validate(string filename, string type) {
         cout << " Old: " << oldB << " New: " << newB << endl;
       } else if (fail == 10) {
         cout << "..." << endl;
-      }
-    }
+      }5
     count++;
   } while (count < numberOfPoints);
 
@@ -377,11 +382,7 @@ void testMagneticField::validateVsTOSCATable(string filename) {
 
 // #include <multimap>
 // typedef multimap<float, pair<int, int> > VolumesByDiscrepancy ;
-
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <unistd.h>
-
+// ----
 // Compare the TOSCA txt table with the corresponding one in other sector.
 void testMagneticField::compareSectorTables(string file1) {
   bool list = false;  // true: print one line per volume
@@ -509,7 +510,6 @@ void testMagneticField::fillFromTable(string inputFile, vector<GlobalPoint>& p, 
   }
 }
 
-#include "MagneticField/VolumeBasedEngine/interface/VolumeBasedMagneticField.h"
 
 // Get the pointer of the volume containing a point
 const MagVolume6Faces* testMagneticField::findVolume(GlobalPoint& gp) {

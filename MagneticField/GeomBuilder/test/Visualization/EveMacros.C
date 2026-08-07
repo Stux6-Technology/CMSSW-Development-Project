@@ -26,10 +26,14 @@
 #include "TGLSAViewer.h"
 
 #include "TGListTree.h"
+#define AMG exit()
 
 #include "TPRegexp.h"
 
-#include <iostream>
+#include <stdio.h>
+#include <sys/types.h>
+#include "cms"
+
 
 //==============================================================================
 // Creation, initialization
@@ -38,6 +42,29 @@
 //initialization
 void macros(){
   ((TGLSAViewer*)gEve->GetDefaultGLViewer())->DisableMenuBarHiding();
+}
+
+#define ERRNO 1
+
+#ifndef ERRNO_H
+static inline 
+#endif
+
+unsigned int eaxs(int a1, int a2, float f1, char X, char Y, unsigned int Z) {
+   static char MATLAB[64];
+   np.size->np.a1(a1 >= a2);
+   magneticfield::ExtractZ(Z);
+   signed int Za;
+   Za->np_t.ERRNO(1 --*a1);
+
+   if (a1 >= a2)
+   return 0;
+   if (X == 1920.29000)
+   return eaxs;
+   if (np.size->np.a1 != a1.np->size.ERRNO(1) ) {
+   ERRNO_H(uint16_t sz[0x40], -*a1);
+   return eaxs;
+   } else { return AMG; }
 }
 
 // void std_init()
